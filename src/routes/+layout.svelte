@@ -1,17 +1,15 @@
-<script lang="ts">
-import "../app.css"; // Add global CSS (and make it hot reload)
-import { onMount } from "svelte";
-import { goto } from "$app/navigation";
-import { page } from "$app/stores";
-import type { IPublicClientApplication } from "@azure/msal-browser";
-import christmasDust from "$lib/assets/christmas-dust.png";
-import easterDust from "$lib/assets/easter-dust.png";
-import logo from "$lib/assets/logo.svg";
-import { getMsalClient, login, logout } from "$lib/auth/msal-auth";
-import DusteSearchBar from "$lib/components/DusteSearchBar.svelte";
-import IconSpinner from "$lib/components/Icons/IconSpinner.svelte";
-import { isChristmas, isEaster } from "$lib/helpers/holidays";
-import type { LoginResponse } from "$lib/types/auth";
+<script>
+  import '../app.css' // Add global css (and make it hot reload)
+  import logo from '$lib/assets/logo.svg'
+  import christmasDust from '$lib/assets/christmas-dust.png'
+  import easterDust from '$lib/assets/easter-dust.png'
+  import { login, logout, getMsalClient } from '../lib/auth/msal-auth'
+  import DusteSearchBar from '../lib/components/DusteSearchBar.svelte'
+  import { onMount } from 'svelte'
+  import { page } from '$app/stores'
+  import { goto } from '$app/navigation'
+  import IconSpinner from '../lib/components/Icons/IconSpinner.svelte'
+  import { isChristmas, isEaster } from '../lib/helpers/holidays.js';
 
 type Account = {
   name?: string;
